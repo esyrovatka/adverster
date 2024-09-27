@@ -2,29 +2,29 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js", // Основной JS-файл
+  entry: "./src/index.js",
   output: {
-    filename: "bundle.js", // Название сборки
-    path: path.resolve(__dirname, "dist"), // Папка для сборки
-    clean: true, // Очищает папку dist при каждой сборке
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.css$/, // Обработка CSS файлов
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // Ваш HTML шаблон
+      template: "./src/index.html",
     }),
   ],
   devServer: {
-    static: "./dist", // Папка для статических файлов
-    port: 3000, // Порт сервера
-    open: false, // Открывать браузер автоматически
+    static: "./dist",
+    port: 3000,
+    open: true,
   },
-  mode: "development", // Режим разработки
+  mode: "development",
 };
